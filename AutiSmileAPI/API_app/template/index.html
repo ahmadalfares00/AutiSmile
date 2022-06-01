@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<form id="upload-file" method="post" enctype="multipart/form-data">
+
+<input type="file" id='file_upload'>
+<button type="button" id="detect"></button>
+</form>
+    <script>
+    $(document).ready(function(){
+
+  // jQuery methods go here...
+    $('#detect').click(function (){
+       var formData = new FormData();
+       var csv_file = $('#upload-file')[0];
+       formData.append('csv_file',csv_file)
+       $.ajax({
+           url:'http://127.0.0.1:8000/api/test',
+           type:'POST',
+           data:formData,
+           datatype: "json",
+           contentType:false,
+           processData:false,
+           cache: false,
+           success: function (response){
+               // alert(res.data)
+               console.log(response.data)
+           }
+
+       });
+    });
+});
+</script>
+</body>
+</html>
