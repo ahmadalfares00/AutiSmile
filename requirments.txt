@@ -1,0 +1,114 @@
+aniso8601==9.0.1
+appdata==2.1.2
+argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
+argon2-cffi-bindings @ file:///C:/ci/argon2-cffi-bindings_1644551690056/work
+asgiref==3.5.0
+asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+attrs @ file:///opt/conda/conda-bld/attrs_1642510447205/work
+backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+beautifulsoup4 @ file:///C:/ci/beautifulsoup4_1650293025093/work
+bleach==5.0.0
+brotlipy==0.7.0
+certifi==2021.10.8
+cffi @ file:///C:/ci/cffi_1636523946399/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click==8.0.3
+colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+conda==4.12.0
+conda-content-trust @ file:///tmp/build/80754af9/conda-content-trust_1617045594566/work
+conda-package-handling @ file:///C:/ci/conda-package-handling_1618262410900/work
+coreapi==2.3.3
+coreschema==0.0.4
+cryptography @ file:///C:/ci/cryptography_1639414720302/work
+cycler==0.11.0
+debugpy==1.6.0
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+Django==4.0.4
+django-cors-headers==3.12.0
+django-templated-mail==1.1.1
+djangorestframework==3.13.1
+djangorestframework-simplejwt==4.8.0
+djoser==2.1.0
+entrypoints @ file:///C:/ci/entrypoints_1649926621128/work
+executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+fastjsonschema==2.15.3
+Flask==2.1.2
+Flask-RESTful==0.3.9
+fonttools==4.33.3
+idna @ file:///tmp/build/80754af9/idna_1637925883363/work
+importlib-metadata==4.11.4
+ipykernel==6.13.0
+ipython @ file:///C:/ci/ipython_1651601994004/work
+ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
+ipywidgets==7.7.0
+itsdangerous==2.1.2
+itypes==1.2.0
+jedi @ file:///C:/ci/jedi_1644315428289/work
+Jinja2==3.1.1
+joblib==1.1.0
+jsonschema @ file:///C:/ci/jsonschema_1650008058050/work
+jupyter @ file:///C:/ci/jupyter_1607685287094/work
+jupyter-client==7.3.0
+jupyter-console @ file:///opt/conda/conda-bld/jupyter_console_1647002188872/work
+jupyter-core @ file:///C:/ci/jupyter_core_1651656286743/work
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==1.1.0
+kiwisolver==1.4.2
+MarkupSafe==2.1.1
+matplotlib==3.5.2
+matplotlib-inline==0.1.3
+menuinst @ file:///C:/ci/menuinst_1631733438520/work
+mistune @ file:///C:/ci/mistune_1607359457024/work
+nbclient==0.6.2
+nbconvert==6.5.0
+nbformat==5.4.0
+nest-asyncio @ file:///C:/ci/nest-asyncio_1649829929390/work
+notebook @ file:///C:/ci/notebook_1651666819623/work
+numpy==1.22.3
+oauthlib==3.2.0
+packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+pandas==1.4.2
+pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+Pillow==9.1.0
+prometheus-client==0.14.1
+prompt-toolkit==3.0.29
+psutil==5.9.0
+pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+pycosat==0.6.3
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+Pygments==2.12.0
+PyJWT==2.3.0
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1635333100036/work
+pyparsing==3.0.8
+pyrsistent==0.18.1
+PySocks @ file:///C:/ci/pysocks_1605307512533/work
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python3-openid==3.2.0
+pytz==2022.1
+pywin32==302
+pywinpty==2.0.5
+pyzmq @ file:///C:/ci/pyzmq_1638435148211/work
+qtconsole @ file:///opt/conda/conda-bld/qtconsole_1649078897110/work
+QtPy==2.1.0
+requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
+requests-oauthlib==1.3.1
+ruamel-yaml-conda @ file:///C:/ci/ruamel_yaml_1616016898638/work
+scikit-learn==1.0.2
+scipy==1.8.0
+seaborn==0.11.2
+Send2Trash @ file:///tmp/build/80754af9/send2trash_1632406701022/work
+sip==4.19.13
+six @ file:///tmp/build/80754af9/six_1623709665295/work
+social-auth-app-django==4.0.0
+social-auth-core==4.2.0
+soupsieve==2.3.2.post1
+sqlparse==0.4.2
+stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+terminado==0.13.3
+testpath @ file:///tmp/build/80754af9/testpath_1624638946665/work
+threadpoolctl==3.1.0
+tinycss2==1.1.1
+to-requirements.txt==1.1.8
