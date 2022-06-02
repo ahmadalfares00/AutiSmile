@@ -117,8 +117,24 @@ class AutismRecord(models.Model):
                               Who_completed_the_test=request['Who_completed_the_test'],
                               Family_mem_with_ASD=request['Family_mem_with_ASD'],
                               Why_are_you_taken_the_screening=request['Why_are_you_taken_the_screening'],
-                              class_variable=request['y_prediction'], percentage=request['percentage'][0][1]
+                              class_variable=request['y_prediction'], percentage=request['percentage']
                               )
         record.save()
 
+
+class Clinic(models.Model):
+    name = models.CharField(null=False, default=None , max_length=50)
+    location = models.CharField(null=False, default=None , max_length=200)
+    phone_number = models.CharField(null=True , default=None , max_length=50)
+    email = models.CharField(null=True , default=True , max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class FeedBack(models.Model):
+    user = models.ForeignKey(User , null=True , default=None , on_delete=models.SET_NULL , blank=True)
+    feed = models.CharField(max_length=1000 , null=False , default=None)
+
+    def __str__(self):
+        return self.user.name
 

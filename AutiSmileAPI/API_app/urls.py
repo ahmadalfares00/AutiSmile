@@ -24,12 +24,12 @@ router.register('ASD for children' ,views.AutismRecordView)
 urlpatterns = [
       path('',include('djoser.urls')),
       path('',include('djoser.urls.authtoken')),
-
       path('testAuth', views.testAuth),
-      path('signup', views.signup),
+      # path('signup', views.signup),
       path('asd',include(router.urls)),
       path('asd_child' , views.childrenAutismSpectrumTest),
       path('getUserRecord',views.getUserTestRecords),
       path('test',views.hhh),
-      # path('test' , )
+      path('sendFeedBack',views.sendFeedBack),
+
 ]

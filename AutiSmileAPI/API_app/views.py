@@ -18,7 +18,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LinearRegression,Ridge,Lasso,RidgeCV, ElasticNet, LogisticRegression
 
-from .models import AutismRecord , User
+from .models import AutismRecord , User , FeedBack
 from .serializers import AutismRecordSerializer ,UserCreateSerializer
 import joblib
 import json
@@ -50,8 +50,8 @@ def childrenAutismSpectrumTest(request):
         print(os.path)
         model = joblib.load(open("API_app/model/randomForest.sav","rb"))
         data = data_pre_proccess(my_data)
-        y_prediction = model.predict(data)
-        percentage = model.predict_proba(data)
+        y_prediction = model.predict(data)[0]
+        percentage = model.predict_proba(data)[0][1]
         data_to_save =request.data
         data_to_save['percentage']=percentage
         data_to_save['y_prediction']=y_prediction
@@ -62,6 +62,7 @@ def childrenAutismSpectrumTest(request):
     except ValueError as e:
         return Response(e.args , status.HTTP_400_BAD_REQUEST)
 
+
 def data_pre_proccess(data):
     data.drop(['Who_completed_the_test'], axis=1, inplace=True)
     data.drop(['Why_are_you_taken_the_screening'], axis=1, inplace=True)
@@ -70,18 +71,6 @@ def data_pre_proccess(data):
     data.drop(['user'], inplace=True, axis=1)
     data.Jaundice = data.Jaundice.map(dict(yes=1, no=0))
     data.rename(columns={"Age_mons": "Age_Mons", "gender": "Sex"})
-    # data.A1.map(dict(1='0' , 1=)
-    # data.A1 = data.A1.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A2 = data.A2.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A3 = data.A3.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A4 = data.A4.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A5 = data.A5.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A6 = data.A6.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A7 = data.A7.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A8 = data.A8.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A9 = data.A9.str.replace({'1':0 , '2':0 , '3':1 , '4':1 , '5':1})
-    # data.A10 = data.A10.str.replace({'1':1,'2':1 , '3':0 , '4':0 , '5':0})
-
     return data
 
 def data_prepr(data):
@@ -150,3 +139,12 @@ def hhh(request):
         return JsonResponse(data={"data":"ssssssssss"})
     else:
         return JsonResponse(data={"data":"ssssssssss"})
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def sendFeedBack(request):
+    if request.user.is_anonymous : user= User.objects.get(email='admin@admin.com')
+    feedBack = FeedBack(user=user,feed = request.data['feed'])
+    feedBack.save()
+    return HttpResponse (json.dumps({"success":"success"}), content_type="application/json" , status=status.HTTP_200_OK)
