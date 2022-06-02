@@ -36,23 +36,38 @@ class User(AbstractUser):
 
 class AutismRecord(models.Model):
     Answers_choices_0_9 = (
-        (0,'Always'),
-        (0,'Usually'),
-        (1,'Sometimes'),
-        (1,'Rarely'),
-        (1,'Never'),
+        (1,'Always'),
+        (2,'Usually'),
+        (3,'Sometimes'),
+        (4,'Rarely'),
+        (5,'Never'),
     )
     Answers_choices_10 = (
         (1, 'Always'),
-        (1, 'Usually'),
-        (0, 'Sometimes'),
-        (0, 'Rarely'),
-        (0, 'Never'),
+        (2, 'Usually'),
+        (3, 'Sometimes'),
+        (4, 'Rarely'),
+        (5, 'Never'),
     )
+    # Answers_choices_0_9 = (
+    #     (0,'Always'),
+    #     (0,'Usually'),
+    #     (1,'Sometimes'),
+    #     (1,'Rarely'),
+    #     (1,'Never'),
+    # )
+    # Answers_choices_10 = (
+    #     (1, 'Always'),
+    #     (1, 'Usually'),
+    #     (0, 'Sometimes'),
+    #     (0, 'Rarely'),
+    #     (0, 'Never'),
+    # )
     Family_members_with_asd = (
         (1, 'Yes'),
         (0, 'No')
     )
+
     user = models.ForeignKey(User , null=True , default=None , on_delete=models.SET_NULL , blank=True)
     # q1 : Does your child look at you when you call his/her name ?
     A1 = models.IntegerField(default=None , null=False,choices=Answers_choices_0_9)
