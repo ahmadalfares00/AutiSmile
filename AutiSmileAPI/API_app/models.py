@@ -136,5 +136,5 @@ class FeedBack(models.Model):
     feed = models.CharField(max_length=1000 , null=False , default=None)
 
     def __str__(self):
-        return self.user.name
+        return self.user
 
