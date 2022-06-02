@@ -4,7 +4,7 @@ from rest_framework.authtoken.models import Token
 
 
 # Create your models here.
-
+#asd
 class User(AbstractUser):
     email = models.EmailField(verbose_name='email', max_length=255, unique=True)
     phonenumber = models.CharField(null=True, max_length=255)
