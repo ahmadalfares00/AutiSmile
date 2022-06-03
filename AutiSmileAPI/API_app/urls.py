@@ -28,8 +28,10 @@ urlpatterns = [
       # path('signup', views.signup),
       path('asd',include(router.urls)),
       path('asd_child' , views.childrenAutismSpectrumTest),
+      path('asd_adult' , views.AdultAutismSpectrumTest),
       path('getUserRecord',views.getUserTestRecords),
       path('test',views.hhh),
       path('sendFeedBack',views.sendFeedBack),
+      path('getFeeds',views.getFeeds),
 
 ]

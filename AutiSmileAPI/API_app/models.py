@@ -21,6 +21,8 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username', 'phonenumber', 'first_name', 'last_name', 'user_type','is_superuser'
                        ]
     USERNAME_FIELD = 'email'
+    def __str__(self):
+        return self.username
 
     def get_username(self):
         return self.email
@@ -138,3 +140,54 @@ class FeedBack(models.Model):
     def __str__(self):
         return self.user
 
+
+class AutismRecordAdult(models.Model):
+    Answers = (
+        (1, 'Deinitely Agree'),
+        (2, 'Slightly Agree'),
+        (3, 'Slightly Disagree'),
+        (4, 'Definitely Disagree'),
+    )
+
+    user = models.ForeignKey(User, null=True, default=None, on_delete=models.SET_NULL, blank=True)
+    A1 = models.IntegerField(default=None, null=False, choices=Answers)
+    A2 = models.IntegerField(default=None, null=False, choices=Answers)
+    A3 = models.IntegerField(default=None, null=False, choices=Answers)
+    A4 = models.IntegerField(default=None, null=False, choices=Answers)
+    A5 = models.IntegerField(default=None, null=False, choices=Answers)
+    A6 = models.IntegerField(default=None, null=False, choices=Answers)
+    A7 = models.IntegerField(default=None, null=False, choices=Answers)
+    A8 = models.IntegerField(default=None, null=False, choices=Answers)
+    A9 = models.IntegerField(default=None, null=False, choices=Answers)
+    A10 = models.IntegerField(default=None, null=False, choices=Answers)
+    age = models.IntegerField(null=False)
+    AQchat_10_Score = models.IntegerField(null=False)
+    gender = models.CharField(null=False, max_length=50, choices=(('Male', 'Male'), ('Female', 'Female')))
+    Ethnicity = models.CharField(max_length=150, null=False)
+    # Born with jaundice	Boolean  (yes or no)	Whether the case was born with jaundice
+    Jaundice = models.CharField(default=None, null=False, choices=(('Yes', 'Yes'), ('No', 'No')), max_length=10)
+    Who_completed_the_test = models.CharField(max_length=100, default="parent")
+    Why_are_you_taken_the_screening = models.CharField(max_length=300, default=None)
+    class_variable = models.CharField(null=False, max_length=10, choices=(('No', 'No'), ('Yes', 'Yes')))
+    percentage = models.FloatField()
+
+
+    def __str__(self):
+        return "" + self.class_variable[0] + "," + str(self.percentage)
+
+    def save_record(request):
+        AQchat_10_Score = int(request['A1']) + int(request['A2']) + int(request['A3']) + int(request['A4']) + int(request['A5']) + int(request['A6']) + \
+                         int(request['A7']) + int(request['A8']) + int(request['A9']) +int(request['A10'])
+        record = AutismRecordAdult(user=request['user'], A1=request['A1'], A2=request['A2'], A3=request['A3'],
+                              A4=request['A4'],
+                              A5=request['A5'], A6=request['A6'], A7=request['A7'],
+                              A8=request['A8'],
+                              A9=request['A9'], A10=request['A10'], age=request['age'],
+                              AQchat_10_Score=AQchat_10_Score, gender=request['gender'],
+                              Ethnicity=request['Ethnicity'],
+                              Jaundice=request['Jaundice'],
+                              Who_completed_the_test=request['Who_completed_the_test'],
+                              Why_are_you_taken_the_screening=request['Why_are_you_taken_the_screening'],
+                              class_variable=request['y_prediction'], percentage=request['percentage']
+                              )
+        record.save()
