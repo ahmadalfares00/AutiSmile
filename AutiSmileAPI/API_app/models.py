@@ -138,7 +138,7 @@ class FeedBack(models.Model):
     feed = models.CharField(max_length=1000 , null=False , default=None)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 
 class AutismRecordAdult(models.Model):
